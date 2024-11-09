@@ -4,34 +4,29 @@ import useFetch from '../../hooks/useFetch'
 import BookShelf from './BookShelf'
 import Title from '../general/Title'
 import NewBook from './NewBook'
+
+
+function Books({ data }) {
+  return (
+    <>
+      <div>
+        <Title>Clickea un libro y empieza para agregar notas</Title>
+        <BookShelf data={data}/>
+      </div>
+    </>
+  )
+}
+
 export default function Home() {
   const [data] = useFetch('http://localhost:8000/books')
   return (
     <>
         <Nav />
-          <div id="body">
 
-          {
-          data && data.length > 0 ? 
-          (
-          <>
-            <div>
-              <Title>Clickea un libro y empieza para agregar notas</Title>
-              <BookShelf data={data}/>
-            </div>
-            
-          </>
-        
-          )
-          
-          : (
-            <div>
-              <NewBook />
-            </div>
-          )
-          }
+        {
+          (data && data.length > 0 ) ? <Books data={data}/>:<NewBook />
+        }
 
-        </div>
     </>
   )
 }

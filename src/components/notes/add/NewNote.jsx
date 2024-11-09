@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import TextInput from '../../general/TextInput';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
 function DialogMetadata({ text, noteTitle, bookId }) {
   let navigate = useNavigate()
   const {

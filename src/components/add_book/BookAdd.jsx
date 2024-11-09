@@ -86,79 +86,37 @@ export default function BookAdd() {
           <FileInput color='blue' initialLabel={'Elija un archivo.'} />
 
           <div id='grid'>
-            <TextInput 
-              name={'title'}
-              placeholder={'Title'}
-              register={register}
-              additional={{required: true, pattern: /\w+/}}
-            />
-            <TextInput 
-                name={'author'}
-                placeholder={'Author'}
-                register={register}
-                additional={{required: true, pattern: /\w+/}}
-              />
-
+            <TextInput name={'title'} placeholder={'Title'} register={register} additional={{required: true, pattern: /\w+/}}/>
+            <TextInput name={'author'} placeholder={'Author'} register={register} additional={{required: true, pattern: /\w+/}}/>
           </div>
 
           {/* Description */}
           <div className='mt-5'>
-          <TextInput 
-              name={'description'}
-              placeholder={'Description'}
-              additional={{required: false}}
-              register={register}
-            />
+          <TextInput name={'description'} placeholder={'Description'} additional={{required: false}} register={register}/>
           </div>
 
 
           <div id="grid" className='my-5' >
-            <TextInput 
-                name={'short_title'}
-                placeholder={'Short Title'}
-                register={register}
-                additional={{required: false}}
-              />
-            <TextInput 
-              name={'doi'}
-              placeholder={'DOI'}
-              additional={{required: false}}
-              register={register}
+            <TextInput name={'short_title'} placeholder={'Short Title'} register={register} additional={{required: false}}/>
+            <TextInput name={'doi'} placeholder={'DOI'} additional={{required: false}} register={register}
             />
           </div>
 
           <div id="grid" className=''>
-              <TextInput 
-                name={'page_count'}
-                placeholder={'Page count'}
-                register={register}
-                additional={{required: false, pattern: /\d/}}
-                />
+              <TextInput name={'page_count'} placeholder={'Page count'} register={register} additional={{required: false, pattern: /\d/}}/>
 
-              <TextInput
-                name={'keywords'}
-                placeholder={'Keywords'}
-                register={register}
-                additional={{required: false, pattern: /[\w\s,]/}}
-                />
+              <TextInput name={'keywords'} placeholder={'Keywords'} register={register} additional={{required: false, pattern: /[\w\s,]/}}/>
 
           </div>
           <div className="my-5">  
-          <TextInput
-                name={'isbn'}
-                placeholder={'ISBN'}
-                register={register}
-                additional={{required: false}}
-                />
+            <TextInput name={'isbn'} placeholder={'ISBN'} register={register} additional={{required: false}}/>
           </div>
           <div className='flex place-items-center justify-center my-5'>
             <Button icon={'+'} label={'Agregar libro'}/>
-
           </div>
         </form>
       </div>
     </div>
-
     </>
-      )
+  )
 }
