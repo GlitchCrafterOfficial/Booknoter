@@ -1,8 +1,15 @@
-# React + Vite
+# Booknoter frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Es el frontend de una simple aplicación para tomar notas de libros, con estructuras de datos especializadas en los libros
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Roadmap
+- [x] Crear página para agregar libros
+- [x] Crear la página para editar la información del libro
+- [x] Crear HomePage
+- [x] Crear página para mostrar las notas de los libros 
+- [x] Crear página para agregar nota
+- [x] Crear el cuadro para agregar metadata de las notas
+- [x] Crear la vista para editar las notas
+- [x] Crear la vista para ver las notas
+- [ ] Hacer responsivo
+- [ ] Refactorizar
