@@ -1,0 +1,12 @@
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
+    gap: 1vw;
+}
+
+#cover {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position:absolute;
+}

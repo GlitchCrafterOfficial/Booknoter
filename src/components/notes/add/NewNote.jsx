@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router-dom'
-import Nav from '../../../general/Nav';
+import Nav from '../../general/Nav';
 import useFetch from '../../../hooks/useFetch';
 import { Editor } from 'primereact/editor';
 import SlimCard from './SlimCard';
-import Title from '../../../general/Title'
+import Title from '../../general/Title'
 import { useForm } from 'react-hook-form';
-import TextInput from '../../../general/TextInput';
+import TextInput from '../../general/TextInput';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 function DialogMetadata({ text, noteTitle, bookId }) {

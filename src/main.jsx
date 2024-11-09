@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './components/home/Home';
-import Nav from './general/Nav';
+import Nav from './components/general/Nav';
 import BookAdd from './components/add_book/BookAdd';
 import List from './components/notes/list/List';
 import NewNote from './components/notes/add/NewNote';

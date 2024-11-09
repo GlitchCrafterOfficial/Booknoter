@@ -1,0 +1,7 @@
+#books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
+  justify-items: start;
+  align-items: start;
+  gap: 2vw;
+}

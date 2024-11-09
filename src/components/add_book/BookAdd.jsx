@@ -1,12 +1,15 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import TextInput from '../../general/TextInput';
-import Button from '../../general/Button';
+import TextInput from '../general/TextInput';
+import Button from '../general/Button';
 import axios from 'axios'
 import { useState } from 'react';
-import Nav from '../../general/Nav';
-import { redirect } from 'react-router-dom';
-import Title from '../../general/Title';
+import Nav from '../general/Nav';
+import Title from '../general/Title';
+import './BookAdd.css'
+import Message from '../general/Message';
+import FileInput from '../general/FileInput';
+
 
 export default function BookAdd() {
   const {
@@ -19,6 +22,7 @@ export default function BookAdd() {
   const [bookCreated, setBookCreated] = useState(false)
   const [somethingWrong, setSomethingWrong] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [coverName, setCoverName] = useState('Elija una portada.')
 
   const onFormSubmit = async (data) => {
     const fileInput = document.getElementById('cover')
@@ -49,11 +53,7 @@ export default function BookAdd() {
     }
     reset()
     fileInput.value = ''
-  }
-
-
-  
-  
+  }  
   return (
     <>
       <Nav />
@@ -62,83 +62,77 @@ export default function BookAdd() {
       <div id="title" className='flex place-items-center justify-center my-4'>
         <Title>Agregar un libro</Title>
       </div>
+
       {
         (bookCreated) ? (
-          <div id="title" className='flex place-items-center justify-center my-4'>
-            <h1 className='font-bold p-4 bg-green-500 border-green-700 text-green-900'>Libro agregado con éxito</h1>
-          </div>
+          <Message color='green'>
+            Libro agregado con éxito
+          </Message>
         ) : undefined
       }
 
       {
         (somethingWrong) ? (
           (
-            <div id="title" className='flex place-items-center justify-center my-4'>
-              <h1 className='font-bold p-4 bg-red-500 border-red-700 text-red-900'>{errorMessage}</h1>
-            </div>
+            <Message color='red'>
+              {errorMessage}
+            </Message>
           )
         ) : undefined
       }
       
       <div id="form">
         <form onSubmit={handleSubmit(onFormSubmit)}>
-          <div id="file">
-            <input type="file" name="Book Cover" id='cover' className='my-4' />
-          </div>
-          <div className="grid grid-cols-2 gap-5">
-            <div id='col1'>          
-              <TextInput 
-                name={'title'}
-                placeholder={'Title'}
-                register={register}
-                additional={{required: true, pattern: /\w+/}}
-                w={'35vw'}
-              />
-            </div>
-            <div id='col2'>
+          <FileInput color='blue' initialLabel={'Elija un archivo.'} />
+
+          <div id='grid'>
+            <TextInput 
+              name={'title'}
+              placeholder={'Title'}
+              register={register}
+              additional={{required: true, pattern: /\w+/}}
+            />
             <TextInput 
                 name={'author'}
                 placeholder={'Author'}
                 register={register}
                 additional={{required: true, pattern: /\w+/}}
-                w={'35vw'}
               />
-            </div>
 
           </div>
-          <div id="col3" className='pt-5 w-[74.8vw]'>
+
+          {/* Description */}
+          <div className='mt-5'>
           <TextInput 
               name={'description'}
               placeholder={'Description'}
               additional={{required: false}}
               register={register}
             />
+          </div>
 
-            </div>
-          <div id="form" className='grid grid-cols-2 gap-5 my-5'>
+
+          <div id="grid" className='my-5' >
             <TextInput 
                 name={'short_title'}
                 placeholder={'Short Title'}
                 register={register}
                 additional={{required: false}}
-                w={'35vw'}
               />
             <TextInput 
               name={'doi'}
               placeholder={'DOI'}
               additional={{required: false}}
               register={register}
-              w={'35vw'}
             />
           </div>
 
-          <div id="row" className='grid grid-cols-2 gap-5'>
+          <div id="grid" className=''>
               <TextInput 
                 name={'page_count'}
                 placeholder={'Page count'}
                 register={register}
                 additional={{required: false, pattern: /\d/}}
-                w={'35vw'}
                 />
 
               <TextInput
@@ -146,19 +140,19 @@ export default function BookAdd() {
                 placeholder={'Keywords'}
                 register={register}
                 additional={{required: false, pattern: /[\w\s,]/}}
-                w={'35vw'}
                 />
-              
-              <TextInput
+
+          </div>
+          <div className="my-5">  
+          <TextInput
                 name={'isbn'}
-                placeholder={'isbn'}
+                placeholder={'ISBN'}
                 register={register}
                 additional={{required: false}}
-                w={'35vw'}
                 />
           </div>
           <div className='flex place-items-center justify-center my-5'>
-          <Button icon={'+'} label={'Agregar libro'}/>
+            <Button icon={'+'} label={'Agregar libro'}/>
 
           </div>
         </form>
